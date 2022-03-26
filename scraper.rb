@@ -167,3 +167,22 @@ while current_page <= scraper.get_total_pages
   scraper.scrape! current_page
   current_page += 1
 end
+
+all_courses = []
+data = ""
+puts "Consolidating data..."
+Dir["#{__dir__}/database/*"].each do |file_path|
+  if file_path.include? 'remove'
+    # remove all uneccessary files (remove- prefix)
+    FileUtils.rm_rf file_path
+  else
+    puts file_path
+    data = JSON.parse(File.read(file_path))
+    all_courses << data
+  end
+end
+# save course information to a json file
+file_path = "#{__dir__}/#{@directory}/database/course_database.json"
+json_text = JSON.generate(all_courses)
+puts "Writing to #{file_path}..."
+File.open(file_path, 'w') { |file| file.write json_text }
