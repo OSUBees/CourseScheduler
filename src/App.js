@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import Prerequisites from "./components/Prerequisites/Prerequisites";
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 //temp 数据
 const class1 = 
   {

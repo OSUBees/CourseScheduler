@@ -22,9 +22,9 @@ const class3 =
   credit: 3,
 }
 export default function Prerequisites(prop) {
-    return (<div className="prerequisites">
-      <h3>Prerequisites Met</h3>
-            <div className="prerequisites-met">
+    return (<div className="w-25 p-2 text-center bg-light">
+      <h3 >Prerequisites Met</h3>
+            <div className="d-flex justify-content-between flex-wrap">
             
             
             <ClassInfo section={class1}/>
@@ -32,7 +32,7 @@ export default function Prerequisites(prop) {
           <ClassInfo section={class3} />
       </div>
       <h3>Prerequisites Met</h3>
-        <div className="prerequisites-notmet">
+        <div className="d-flex justify-content-between flex-wrap">
             
          
             
