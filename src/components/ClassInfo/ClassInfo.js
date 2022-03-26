@@ -5,7 +5,7 @@ export default function ClassInfo(prop) {
   return (<div className="class">
             
     <div className="class-name" >
-         <h1>{prop.section.name}</h1> 
+         <p>{prop.section.name}</p> 
               
     </div>
     <div className="class-info">

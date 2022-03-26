@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import ClassInfo from "./components/ClassInfo";
+import Prerequisites from "./components/Prerequisites/Prerequisites";
 import './App.css';
 //temp 数据
 const class1 = 
@@ -25,15 +25,10 @@ const class3 =
 }
 function App() {
   return (
-    <ul
-      role="list"
-      className="todo-list stack-large stack-exception"
-      aria-labelledby="list-heading"
-    >
-      <ClassInfo section={class1}/>
-      <ClassInfo section={class2}/>
-      <ClassInfo section={class3}/>
-    </ul>
+    
+      <Prerequisites/>
+      
+    
   );
 }
 
