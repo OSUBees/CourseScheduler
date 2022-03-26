@@ -1,0 +1,15 @@
+.block {
+  background-color: rgb(110, 122, 122);
+}
+
+div {
+  margin-top: 0.25rem;
+  font-weight: bold;
+  color: #fffefe;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.courses {
+  text-align: inherit;
+}

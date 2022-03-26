@@ -2,6 +2,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Semester from "./components/Semester/Semester.js";
 import Prerequisites from "./components/Prerequisites/Prerequisites";
+import SemesterList from "./components/Semester/SemesterList.js";
 
 //temp 数据
 const class1 = {
@@ -26,10 +27,9 @@ const class3 = {
 function App() {
   return (
     <div>
-      <Semester />
+      <SemesterList />
       <Prerequisites />
     </div>
   );
-}
-
+  
 export default App;
