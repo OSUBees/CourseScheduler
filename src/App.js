@@ -1,8 +1,8 @@
 import "./App.css";
-import Semester from "./components/Semester/Semester.js";
+import SemesterList from "./components/Semester/SemesterList.js";
 
 function App() {
-  return <Semester />;
+  return <SemesterList />;
 }
 
 export default App;

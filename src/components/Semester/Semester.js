@@ -1,6 +1,7 @@
 import { Fragment } from "react";
-import Card from "../UI/Card";
+import SemesterCard from "../UI/SemesterCard";
 import CourseItem from "../CourseItem/CourseItem.js";
+import classes from "./Semester.module.css";
 
 const DUMMY_COURSES = [
   {
@@ -41,11 +42,13 @@ const Semester = () => {
 
   return (
     <Fragment>
-      <div>Semester X</div>
-      <Card>
-        <ul>{coursesList}</ul>
-      </Card>
-      <div>Total Credit:XX</div>
+      <SemesterCard className="classes.block">
+        <div>Semester X</div>
+        <div className={classes.courses}>
+          <ul>{coursesList}</ul>
+        </div>
+        <div>Total Credit:XX</div>
+      </SemesterCard>
     </Fragment>
   );
 };
