@@ -10,69 +10,19 @@ import SemesterList from "./components/Semester/SemesterList.js";
 class App extends Component {
   state = {
     courses: [],
-    semesters: [
-      {
-        id: "semester 1",
-        name: "semester 1",
-        courses: [
-          {
-            course_courseId: "150588",
-            course_name:
-              "Undergraduate Research in Computer Science and Engineering",
-            course_short_description: "HonUG Research CSE",
-            course_description:
-              "Opportunity for undergraduate student to conduct research in Computer Science and Engineering.\r\nPrereq: Honors standing, and permission of instructor. Repeatable to a maximum of 10 cr hrs or 10 completions. This course is graded S/U.",
-            course_credit_hours: "10 - 10",
-            course_number: "CSE 4998H",
-            course_campus: "Columbus",
-            course_catalogLevel: "4xxx",
-            course_subjectDesc: "Computer Science & Engineering",
-            course_instructors: [
-              { name: "Kannan Athreya", email: "athreya.14@osu.edu" },
-              { name: "Raef B Bassily", email: "bassily.1@osu.edu" },
-              { name: "Mike Bond", email: "bond.213@osu.edu" },
-              {
-                name: "Facundo Memoli Techera",
-                email: "memolitechera.1@osu.edu",
-              },
-              {
-                name: "Srinivasan Parthasarathy",
-                email: "parthasarathy.2@osu.edu",
-              },
-              { name: "Feng Qin", email: "qin.34@osu.edu" },
-              { name: "Rajiv Ramnath", email: "ramnath.6@osu.edu" },
-              { name: "Gregory Ryslik", email: "ryslik.1@osu.edu" },
-              { name: "Atanas Ivanov Rountev", email: "rountev.1@osu.edu" },
-              { name: "Han-Wei Shen", email: "shen.94@osu.edu" },
-              { name: "Kenneth Jay Supowit", email: "supowit.1@osu.edu" },
-              { name: "Deliang Wang", email: "wang.77@osu.edu" },
-              { name: "Huamin Wang", email: "wang.3602@osu.edu" },
-              { name: "Yang Wang", email: "wang.7564@osu.edu" },
-              { name: "Xiaodong Zhang", email: "zhang.574@osu.edu" },
-              {
-                name: "Andrew Raymond Trueman Perrault",
-                email: "perrault.17@osu.edu",
-              },
-              { name: null, email: null },
-            ],
-            course_prerequisites:
-              "\nPrereq: Honors standing, and permission of instructor. Repeatable to a maximum of 10 cr hrs or 10 completions. This course is graded S/U.",
-          },
-        ],
-      },
-    ],
+    semesters: [{ id: "semester1", name: "Semester 1" }],
     prerequisite: {
       id: 1,
       name: "Prereq Column",
     },
   };
 
-  // getSemesters() {
-  //   const dbRef = ref(getDatabase(), "semesters");
-  //   onValue(dbRef, (snapshot) => {
-  //     this.setState({ semesters: snapshot.val() });
-  //   });
-  // }
+  getSemesters() {
+    const dbRef = ref(getDatabase(), "semesters");
+    onValue(dbRef, (snapshot) => {
+      this.setState({ semesters: snapshot.val() });
+    });
+  }
   getCourses() {
     const dbRef = ref(getDatabase(), "courses");
     onValue(dbRef, (snapshot) => {
@@ -84,7 +34,7 @@ class App extends Component {
   componentDidMount() {
     console.log("mounted");
     this.getCourses();
-    // this.getSemesters();
+    this.getSemesters();
   }
 
   onDragEnd(result) {
@@ -107,10 +57,21 @@ class App extends Component {
       // add to semester
       semester["courses"].push(course);
       //remove from course
-      let tmpCourses = [...courses].filter(
+      let removeCourse = [...courses].filter(
         (course) => course.course_courseId != courseId
       );
-      this.setState((courses = tmpCourses));
+
+      // let remove = this.state.fruits.indexOf(e.target.value);
+      this.setState(
+        {
+          courses: courses.filter(
+            (course) => course.course_courseId != courseId
+          ),
+        },
+        () => {
+          console.log("course", courses);
+        }
+      );
     }
   }
 
@@ -118,16 +79,19 @@ class App extends Component {
     let { courses, semesters, prerequisite } = this.state;
     return (
       <DragDropContext onDragEnd={(result) => this.onDragEnd(result)}>
-        <div style={{ height: "100%" }} className="d-flex flex-column h-100 mb-0 p-5">
-            <div className="d-flex">
+        <div
+          style={{ height: "100%" }}
+          className="d-flex flex-column h-100  mb-0 p-5"
+        >
+          <div className="d-flex">
             <div className="d-block w-40  overflow-scroll h-80 col-8">
               <SemesterList semesters={semesters} />
             </div>
             <div className="d-flex flex-column  mx-5 h-80 col-3">
               <Prerequisites prerequisite={prerequisite} courses={courses} />
             </div>
-            </div>
           </div>
+        </div>
       </DragDropContext>
     );
   }

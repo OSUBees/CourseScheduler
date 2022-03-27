@@ -71,7 +71,7 @@ class Scrape
                                            course['course']['maxUnits']
                                          else
                                            # range of credit hours
-                                           "#{course['course']['maxUnits']} - #{course['course']['maxUnits']}"
+                                           "#{course['course']['minUnits']} - #{course['course']['maxUnits']}"
                                          end
     course_info['course_number'] = "#{course['course']['subject']} #{course['course']['catalogNumber']}"
     course_info['course_campus'] = course['course']['campus']

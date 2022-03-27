@@ -6,6 +6,12 @@ import "./Semester.module.css";
 class Semester extends Component {
   state = {};
 
+  returnCourseItem(course, index) {
+    return (
+      <CourseItem key={course.course_courseId} course={course} index={index} />
+    );
+  }
+
   render() {
     const { semester } = this.props;
     return (
@@ -23,17 +29,13 @@ class Semester extends Component {
                 <div className="text-center mx-5 fw-bold fs-3 mt-5">Total Credit: 
                 </div>
               <div className="d-flex flex-column mx-auto w-80 mt-5 p-2">
-                {semester.courses.map((course, index) => {
-                  return (
-                    <CourseItem
-                      key={course.course_courseId}
-                      course={course}
-                      index={index}
-                    />
-                  );
-                })}
+                {semester.courses != null
+                  ? semester.courses.map((course, index) => {
+                      this.returnCourseItem(course, index);
+                    })
+                  : ""}
               </div>
-              
+
               {provided.placeholder}
             </div>
           );
