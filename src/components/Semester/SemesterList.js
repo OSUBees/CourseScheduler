@@ -7,7 +7,7 @@ class SemesterList extends Component {
   render() {
     const { semesters } = this.props;
     return (
-      <div className="w-55 overflow-scroll h-100 d-flex">
+      <div className="w-40 overflow-scroll h-100 d-flex">
         {semesters.map((semester) => {
           return (
             <Semester

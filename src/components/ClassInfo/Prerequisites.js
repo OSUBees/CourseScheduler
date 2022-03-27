@@ -16,11 +16,11 @@ class Prerequisites extends Component {
             <div
               {...provided.droppableProps}
               ref={provided.innerRef}
-              className="d-block w-10 mx-auto p-3 text-center bg-secondary  h-80 shadow rounded-3"
+              className="d-flex flex-column w-10 mx-auto p-3 text-center bg-secondary  h-80 shadow rounded-3"
             >
               <div className="shadow my-2 bg-dark rounded-3 p-2">
                 <h3 className="text-white">Prerequisites Met</h3>
-                <div className="shadow-sm d-flex justify-content-between flex-wrap">
+                <div style={{height: "700px", overflow: "auto"}}className="shadow-sm d-flex justify-content-between flex-column">
                   {courses.map((course, index) => {
                     return (
                       <CourseItem

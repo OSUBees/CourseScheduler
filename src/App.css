@@ -38,7 +38,10 @@
     transform: rotate(360deg);
   }
 }
-
+html,body{
+  height:100%;
+  background-color: #282c34;
+}
 .comment-line-container {
   max-height: 250px;
   overflow-y: scroll;

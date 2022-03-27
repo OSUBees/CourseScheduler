@@ -17,26 +17,28 @@ class CourseItem extends Component {
       >
         {(provided, snapshot) => {
           return (
-            <div
-              ref={provided.innerRef}
-              {...provided.draggableProps}
-              {...provided.dragHandleProps}
-              className="rounded-3 mx-auto my-2 w-100 px-5 py-5 d-flex flex-column bg-primary text-white"
-            >
-              <CommentBoxOverlay course={course} />
-              <a
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                href="#exampleModalToggle"
-                role="button"
+            <div className="d-block">
+              <div
+                ref={provided.innerRef}
+                {...provided.draggableProps}
+                {...provided.dragHandleProps}
+                className="rounded-3 mx-auto my-2 w-20 p-auto d-block flex-column bg-primary text-white"
               >
-                <div className=".course">
-                  <h3 className="text-center">{course.course_number}</h3>
-                  <div className="text-center">
-                    Credit: {course.course_credit_hours}
+                <CommentBoxOverlay course={course} />
+                <a
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  href="#exampleModalToggle"
+                  role="button"
+                >
+                  <div className=".course">
+                    <h3 className="text-center">{course.course_number}</h3>
+                    <div className="text-center">
+                      Credit: {course.course_credit_hours}
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </div>
             </div>
           );
         }}
