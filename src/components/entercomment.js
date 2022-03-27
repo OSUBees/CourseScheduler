@@ -14,14 +14,14 @@ class EnterComment extends Component {
 
     return (
       <div className="row m-0 p-0 mt-1">
-        <div class="input-group p-0">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
+        <div className="input-group p-0">
+          <div className="input-group-prepend">
+            <span className="input-group-text">
               <CommentIcon />
             </span>
           </div>
-          <div class="input-group-prepend">
-            <span class="input-group-text">
+          <div className="input-group-prepend">
+            <span className="input-group-text">
               {starClicked.map((clicked, index) => (
                 <StarIcon
                   key={index}
@@ -33,12 +33,12 @@ class EnterComment extends Component {
           </div>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Enter Comments"
             aria-label="Enter Comments"
           ></input>
-          <div class="input-group-append">
-            <span class="input-group-text">Send</span>
+          <div className="input-group-append">
+            <span className="input-group-text">Send</span>
           </div>
         </div>
       </div>

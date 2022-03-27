@@ -22,7 +22,10 @@ class AddSemester extends Component {
 
   writeUserData(semesters) {
     console.log("writing data...");
-    set(ref(getDatabase(), "semesters"), semesters);
+    
+      set(ref(getDatabase(), "semesters"), semesters);
+    
+    
   }
 
   render() {

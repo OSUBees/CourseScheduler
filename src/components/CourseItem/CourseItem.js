@@ -30,7 +30,7 @@ class CourseItem extends Component {
                 <CommentBoxOverlay course={course} />
 
                 <a
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   data-bs-toggle="modal"
                   href="#exampleModalToggle"
                   role="button"

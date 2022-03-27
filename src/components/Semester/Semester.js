@@ -7,6 +7,7 @@ class Semester extends Component {
   state = {};
 
   returnCourseItem(course, index) {
+    console.log("updating")
     return (
       <CourseItem key={course.course_courseId} course={course} index={index} />
     );

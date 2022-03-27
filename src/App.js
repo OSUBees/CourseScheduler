@@ -71,20 +71,30 @@ class App extends Component {
     const dbRef = ref(getDatabase(), "semesters");
     onValue(dbRef, (snapshot) => {
       this.setState({ semesters: snapshot.val() });
+      console.log("2333 semesters",this.state)
     });
+  };
+  test() {
+    console.log("2333 semesters",this.state)
   }
+  
   getCourses() {
     const dbRef = ref(getDatabase(), "courses");
     onValue(dbRef, (snapshot) => {
       const courses = snapshot.val();
       this.setState({ courses });
+      console.log("2333 courses",this.state)
     });
   }
-
+  test() {
+    console.log("2333 semesters",this.state)
+  }
+  
   componentDidMount() {
     console.log("mounted");
-    this.getCourses();
     this.getSemesters();
+    this.getCourses();
+    
   }
 
   onDragEnd(result) {
@@ -101,11 +111,14 @@ class App extends Component {
       let semester = semesters.filter(
         (semester) => semester.name == destColumn
       )[0];
+      console.log("semester", semester);
       let course = courses.filter(
         (course) => course.course_courseId == courseId
       )[0];
+      console.log("course", course);
       // add to semester
       semester["courses"].push(course);
+      console.log(semester.courses)
       //remove from course
       let removeCourse = [...courses].filter(
         (course) => course.course_courseId != courseId
@@ -127,7 +140,7 @@ class App extends Component {
 
   render() {
     let { courses, semesters, prerequisite } = this.state;
-
+    console.log("2333",this.state)
     for (let i = 0; i < semesters.length; i++) {
       let semesterCourses = semesters[i].courses;
       // let totalCredit = 0;
@@ -135,12 +148,17 @@ class App extends Component {
       //   totalCredit =
       //     totalCredit + parseInt(semesterCourses[j].course_credit_hours);
       // }
-      let totalCredit = semesterCourses.reduce(
-        (cur, semesterCourse) =>
-          cur + parseInt(semesterCourse.course_credit_hours),
-        0
-      );
-      semesters[i]["totalCredit"] = totalCredit;
+      if (semesterCourses) {
+        let totalCredit = semesterCourses.reduce(
+          (cur, semesterCourse) =>
+            cur + parseInt(semesterCourse.course_credit_hours),
+          0
+        );
+        semesters[i]["totalCredit"] = totalCredit;
+      } else {
+        semesters[i]["totalCredit"] = 0;
+      }
+      
     }
 
     return (

@@ -9,24 +9,24 @@ class CommentBoxOverlay extends Component {
     return (
       <div>
         <div
-          class="modal fade text-dark"
+          className="modal fade text-dark"
           id="exampleModalToggle"
           aria-hidden="true"
           aria-labelledby="exampleModalToggleLabel"
           tabindex="-1"
         >
-          <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content ">
-              <div class="modal-header d-flex flex-row">
+          <div className="modal-dialog modal-dialog-centered modal-xl">
+            <div className="modal-content ">
+              <div className="modal-header d-flex flex-row">
                 <div className="inline-flex m-auto flex-column">
-                  <h2 class="text-center">{course.course_name}</h2>
-                  <h5 class="text-center">{course.course_number}</h5>
+                  <h2 className="text-center">{course.course_name}</h2>
+                  <h5 className="text-center">{course.course_number}</h5>
                   <h5>{course.course_description}</h5>
                 </div>
                 <div className="inline-flex flex-column align-self-start">
                   <button
                     type="button "
-                    class="btn-close"
+                    className="btn-close"
                     data-bs-dismiss="modal"
                     aria-label="Close"
                   ></button>
