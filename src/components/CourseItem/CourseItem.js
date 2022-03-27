@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./CourseItem.module.css";
 import { Draggable } from "react-beautiful-dnd";
-// import "./CourseItem.module.css";
+import CommentBoxOverlay from "../commentboxoverlay";
 
 class CourseItem extends Component {
   state = {};
@@ -23,12 +23,20 @@ class CourseItem extends Component {
               {...provided.dragHandleProps}
               className="rounded-3 mx-auto my-2 w-100 px-5 py-5 d-flex flex-column bg-primary text-white"
             >
-              <div className=".course">
-                <h3 className="text-center">{course.course_number}</h3>
-                <div className="text-center">
-                  Credit: {course.course_credit_hours}
+              <CommentBoxOverlay course={course} />
+              <a
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                href="#exampleModalToggle"
+                role="button"
+              >
+                <div className=".course">
+                  <h3 className="text-center">{course.course_number}</h3>
+                  <div className="text-center">
+                    Credit: {course.course_credit_hours}
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           );
         }}

@@ -11,12 +11,13 @@ class CommentBox extends Component {
   };
 
   render() {
+    const { instructor } = this.props;
     return (
       <div
         className="row w-75 m-auto my-5 rounded-top pt-3"
         style={this.styles}
       >
-        <h2 className="text-lg">Professor Name</h2>
+        <h2 className="text-lg">{instructor.name}</h2>
         <div className="comment-line-container">
           <CommentLine />
           <CommentLine />
