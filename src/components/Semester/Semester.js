@@ -1,5 +1,5 @@
 import CourseItem from "../CourseItem/CourseItem.js";
-import classes from "./Semester.module.css";
+import  "./Semester.module.css";
 
 const DUMMY_COURSES = [
   {
@@ -39,10 +39,16 @@ const Semester = () => {
   ));
 
   return (
-    <div className={classes.card + " w-25" + classes.block}>
-      <div>Semester X</div>
-      <div className={classes.courses + "w-auto"}>{coursesList}</div>
-      <div>Total Credit:XX</div>
+    <div className="d-flex  flex-column flex-wrap mx-2 p-3  w-auto block bg-secondary rounded-3 text-white">
+      
+      <p className="mx-auto fw-bold fs-3 ">Semester X</p>
+      <p className="mx-auto fw-bold fs-3 mt-5">Total Credit:XX</p>
+      <div className="d-flex flex-wrap mx-auto w-80 mt-5 p-2">{coursesList}</div>
+      <div className="mx-auto">
+        
+      
+      </div>
+      
     </div>
   );
 };

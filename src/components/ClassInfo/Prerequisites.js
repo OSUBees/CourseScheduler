@@ -1,12 +1,30 @@
 import React from "react";
 import CourseItem from "../CourseItem/CourseItem.js";
-
+import "./Prerequisites.module.css"
 const DUMMY_MET = [
   {
     id: "c1",
     name: "CSE2221",
     description: "Software 1",
     credit: 4,
+  },
+  {
+    id: "c2",
+    name: "CSE2231",
+    description: "Software 2",
+    credit: 3,
+  },
+  {
+    id: "c3",
+    name: "CSE2321",
+    description: "Foundation 1",
+    credit: 3,
+  },
+  {
+    id: "c4",
+    name: "CSE2331",
+    description: "Foundation 2",
+    credit: 3,
   },
   {
     id: "c2",
@@ -53,6 +71,24 @@ const DUMMY_UNMET = [
     description: "Foundation 2",
     credit: 3,
   },
+  {
+    id: "c2",
+    name: "CSE2231",
+    description: "Software 2",
+    credit: 3,
+  },
+  {
+    id: "c3",
+    name: "CSE2321",
+    description: "Foundation 1",
+    credit: 3,
+  },
+  {
+    id: "c4",
+    name: "CSE2331",
+    description: "Foundation 2",
+    credit: 3,
+  },
 ];
 
 function Prerequisites(prop) {
@@ -75,16 +111,17 @@ function Prerequisites(prop) {
   ));
 
   return (
-    <div className="p-3 text-center bg-secondary  shadow rounded-3 ">
-      <div className="shadow my-2 bg-dark rounded-3 p-2">
-        <h3>Prerequisites Met</h3>
-        <div className="shadow-sm d-flex justify-content-between flex-wrap">
+    <div className=" d-block w-10 mx-auto p-3 text-center bg-secondary  h-80 shadow rounded-3 ">
+      <div className=" shadow my-2 bg-dark rounded-3 p-2">
+        <h3 className="text-white">Prerequisites Met</h3>
+        <div className="overflow-scroll px-3  shadow-sm ">
+          
           {metList}
         </div>
       </div>
-      <div className="shadow my-2 bg-dark rounded-3 p-2">
-        <h3>Prerequisites Unmet</h3>
-        <div className="shadow-sm d-flex justify-content-between flex-wrap">
+      <div className=" shadow my-2 bg-dark rounded-3 p-2">
+        <h3 className="text-white">Prerequisites Unmet</h3>
+        <div className="overflow-scroll  px-3  shadow-sm ">
           {unMetList}
         </div>
       </div>
