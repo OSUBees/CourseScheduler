@@ -1,0 +1,54 @@
+.prerequisites {
+  position: absolute;
+  width: 420px;
+  height: 1024px;
+  left: 1020px;
+  top: 0px;
+  text-align: center;
+  width: 420px;
+  height: 1024px;
+  background: #f9f9f9;
+  border-radius: 3px;
+}
+.prerequisites-notmet {
+  margin-left: -35px;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between：;
+}
+.prerequisites-met {
+  margin-left: -35px;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between：;
+}
+.class-info {
+  text-align: center;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #ffffff;
+}
+.class-name {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #ffffff;
+}
+.class {
+  text-align: center;
+  margin-top: 35px;
+  margin-left: 35px;
+  background-color: #0d6efd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 143px;
+  height: 81px;
+}

@@ -1,0 +1,21 @@
+.block {
+  background-color: rgb(110, 122, 122);
+}
+
+div {
+  font-weight: bold;
+  color: #fffefe;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.courses {
+  text-align: inherit;
+}
+
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  background-color: rgb(87, 89, 94);
+  min-height: 500px;
+}
