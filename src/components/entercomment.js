@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CommentIcon from "@mui/icons-material/Comment";
 import StarIcon from "@mui/icons-material/Star";
+import { getDatabase, ref, set } from "firebase/database";
 
 class EnterComment extends Component {
   state = {
@@ -8,7 +9,9 @@ class EnterComment extends Component {
   };
 
   render() {
+    // let { courses, getSemesters } = this.props;
     const { starClicked } = this.state;
+
     return (
       <div className="row m-0 p-0 mt-1">
         <div class="input-group p-0">
@@ -54,6 +57,18 @@ class EnterComment extends Component {
       starClicked.unshift(true);
     }
     this.setState(starClicked);
+  }
+
+  // addComment(courseArr, newCourse) {
+  //   return courseArr.push(newCourse);
+  // }
+
+  writeUserData(courseArr) {
+    set(ref(getDatabase(), "courses"), courseArr);
+    // for send button
+    // onClick={() =>
+    //   this.writeUserData(this.addComment(courses, newCourse))
+    // }
   }
 }
 
