@@ -15,7 +15,7 @@ class Semester extends Component {
             <div
               {...provided.droppableProps}
               ref={provided.innerRef}
-              className="d-inline-flex  flex-column  mx-2 p-1  w-40 block bg-secondary rounded-3 text-white"
+              className="d-inline-flex  flex-column  mx-2 p-1  w-40 block bg-light rounded-3 text-black text-center shadow"
             >
               <div className="mx-5 fw-bold fs-3 ">{semester.name}</div>
               <div className="mx-5 fw-bold fs-3 mt-5">

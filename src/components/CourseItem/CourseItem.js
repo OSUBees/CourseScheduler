@@ -22,7 +22,7 @@ class CourseItem extends Component {
                 ref={provided.innerRef}
                 {...provided.draggableProps}
                 {...provided.dragHandleProps}
-                className="rounded-3 mx-auto my-2 w-20 p-auto d-block flex-column bg-primary text-white"
+                className="rounded-3 mx-auto my-2 w-20 p-auto d-block flex-column bg-primary text-black"
               >
                 <CommentBoxOverlay course={course} />
                 <a

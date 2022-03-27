@@ -32,14 +32,14 @@ class AddSemester extends Component {
     const { semesters } = this.props;
     return (
       <div
-        className="d-inline-flex  flex-column  mx-2 p-1  w-40 block bg-secondary rounded-3 text-white"
+        className="d-inline-flex  flex-column  mx-2 p-1  w-40 block bg-secondary rounded-3 text-black"
         onClick={() => this.writeUserData(this.addCourse(semesters))}
       >
         <div className="m-auto">
           <div className="text-center">
             <AddCircleOutlineIcon
               fontSize="large"
-              className="text-white text-lg"
+              className="text-black text-lg"
               style={this.addIconStyle}
             />
           </div>

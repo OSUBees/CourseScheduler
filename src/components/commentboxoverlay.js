@@ -9,7 +9,7 @@ class CommentBoxOverlay extends Component {
     return (
       <div>
         <div
-          class="modal fade text-dark"
+          class="modal fade text-black"
           id="exampleModalToggle"
           aria-hidden="true"
           aria-labelledby="exampleModalToggleLabel"
