@@ -1,35 +1,21 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Semester from "./components/Semester/Semester.js";
-import Prerequisites from "./components/Prerequisites/Prerequisites";
+import Prerequisites from "./components/ClassInfo/Prerequisites.js";
 import SemesterList from "./components/Semester/SemesterList.js";
-
-//temp 数据
-const class1 = {
-  id: "c1",
-  name: "CSE2221",
-  description: "Software 1",
-  credit: 4,
-};
-const class2 = {
-  id: "c2",
-  name: "CSE2231",
-  description: "Software 2",
-  credit: 3,
-};
-const class3 = {
-  id: "c3",
-  name: "CSE2321",
-  description: "Foundation 1",
-  credit: 3,
-};
+import Semester from "./components/Semester/Semester";
 
 function App() {
   return (
-    <div>
-      <SemesterList />
-      <Prerequisites />
+    <div className="w-75 bg-dark m-auto p-5">
+      <div className="row">
+        <div className="col-8">
+          <Semester />
+        </div>
+        <div className="col-4">
+          <Prerequisites />
+        </div>
+      </div>
     </div>
   );
-  
+}
 export default App;

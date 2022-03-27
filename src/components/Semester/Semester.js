@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import SemesterCard from "../UI/SemesterCard";
 import CourseItem from "../CourseItem/CourseItem.js";
 import classes from "./Semester.module.css";
+import CourseCard from "../UI/CourseCard";
 
 const DUMMY_COURSES = [
   {
@@ -32,7 +33,7 @@ const DUMMY_COURSES = [
 
 const Semester = () => {
   const coursesList = DUMMY_COURSES.map((course) => (
-    <CourseItem
+    <CourseCard
       id={course.id}
       name={course.name}
       description={course.description}
@@ -44,9 +45,7 @@ const Semester = () => {
     <Fragment>
       <SemesterCard className="classes.block">
         <div>Semester X</div>
-        <div className={classes.courses}>
-          <ul>{coursesList}</ul>
-        </div>
+        <div className={classes.courses + "w-auto"}>{coursesList}</div>
         <div>Total Credit:XX</div>
       </SemesterCard>
     </Fragment>
