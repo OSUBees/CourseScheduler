@@ -14,51 +14,42 @@ class App extends Component {
       {
         id: "semester1",
         name: "Semester 1",
-        courses: [
-          {
-            course_courseId: "150588",
-            course_name:
-              "Undergraduate Research in Computer Science and Engineering",
-            course_short_description: "HonUG Research CSE",
-            course_description:
-              "Opportunity for undergraduate student to conduct research in Computer Science and Engineering.\r\nPrereq: Honors standing, and permission of instructor. Repeatable to a maximum of 10 cr hrs or 10 completions. This course is graded S/U.",
-            course_credit_hours: "10",
-            course_number: "CSE 4998H",
-            course_campus: "Columbus",
-            course_catalogLevel: "4xxx",
-            course_subjectDesc: "Computer Science & Engineering",
-            course_instructors: [
-              { name: "Kannan Athreya", email: "athreya.14@osu.edu" },
-              { name: "Raef B Bassily", email: "bassily.1@osu.edu" },
-              { name: "Mike Bond", email: "bond.213@osu.edu" },
-              {
-                name: "Facundo Memoli Techera",
-                email: "memolitechera.1@osu.edu",
-              },
-              {
-                name: "Srinivasan Parthasarathy",
-                email: "parthasarathy.2@osu.edu",
-              },
-              { name: "Feng Qin", email: "qin.34@osu.edu" },
-              { name: "Rajiv Ramnath", email: "ramnath.6@osu.edu" },
-              { name: "Gregory Ryslik", email: "ryslik.1@osu.edu" },
-              { name: "Atanas Ivanov Rountev", email: "rountev.1@osu.edu" },
-              { name: "Han-Wei Shen", email: "shen.94@osu.edu" },
-              { name: "Kenneth Jay Supowit", email: "supowit.1@osu.edu" },
-              { name: "Deliang Wang", email: "wang.77@osu.edu" },
-              { name: "Huamin Wang", email: "wang.3602@osu.edu" },
-              { name: "Yang Wang", email: "wang.7564@osu.edu" },
-              { name: "Xiaodong Zhang", email: "zhang.574@osu.edu" },
-              {
-                name: "Andrew Raymond Trueman Perrault",
-                email: "perrault.17@osu.edu",
-              },
-              { name: null, email: null },
-            ],
-            course_prerequisites:
-              "\nPrereq: Honors standing, and permission of instructor. Repeatable to a maximum of 10 cr hrs or 10 completions. This course is graded S/U.",
-          },
-        ],
+        courses: [],
+      },
+      {
+        id: "semester2",
+        name: "Semester 2",
+        courses: [],
+      },
+      {
+        id: "semester3",
+        name: "Semester 3",
+        courses: [],
+      },
+      {
+        id: "semester4",
+        name: "Semester 4",
+        courses: [],
+      },
+      {
+        id: "semester5",
+        name: "Semester 5",
+        courses: [],
+      },
+      {
+        id: "semester6",
+        name: "Semester 6",
+        courses: [],
+      },
+      {
+        id: "semester7",
+        name: "Semester 7",
+        courses: [],
+      },
+      {
+        id: "semester8",
+        name: "Semester 8",
+        courses: [],
       },
     ],
     prerequisite: {
@@ -95,7 +86,105 @@ class App extends Component {
     const sourceColumn = source.droppableId;
     const destColumn = destination.droppableId;
 
-    if (destColumn.match(/semester.*/)) {
+    if (destColumn.match(/semester1/)) {
+      // dragged to semester column
+      let semester = semesters.filter(
+        (semester) => semester.id == destColumn
+      )[0];
+      let course = courses.filter(
+        (course) => course.course_courseId == courseId
+      )[0];
+      // add to semester
+      semester["courses"].push(course);
+      //remove from course
+      this.setState({
+        courses: courses.filter((course) => course.course_courseId != courseId),
+      });
+    } else if (destColumn.match(/semester2/)) {
+      // dragged to semester column
+      let semester = semesters.filter(
+        (semester) => semester.id == destColumn
+      )[0];
+      let course = courses.filter(
+        (course) => course.course_courseId == courseId
+      )[0];
+      // add to semester
+      semester["courses"].push(course);
+      //remove from course
+      this.setState({
+        courses: courses.filter((course) => course.course_courseId != courseId),
+      });
+    } else if (destColumn.match(/semester3/)) {
+      // dragged to semester column
+      let semester = semesters.filter(
+        (semester) => semester.id == destColumn
+      )[0];
+      let course = courses.filter(
+        (course) => course.course_courseId == courseId
+      )[0];
+      // add to semester
+      semester["courses"].push(course);
+      //remove from course
+      this.setState({
+        courses: courses.filter((course) => course.course_courseId != courseId),
+      });
+    } else if (destColumn.match(/semester4/)) {
+      // dragged to semester column
+      let semester = semesters.filter(
+        (semester) => semester.id == destColumn
+      )[0];
+      let course = courses.filter(
+        (course) => course.course_courseId == courseId
+      )[0];
+      // add to semester
+      semester["courses"].push(course);
+      //remove from course
+      this.setState({
+        courses: courses.filter((course) => course.course_courseId != courseId),
+      });
+    } else if (destColumn.match(/semester5/)) {
+      // dragged to semester column
+      let semester = semesters.filter(
+        (semester) => semester.id == destColumn
+      )[0];
+      let course = courses.filter(
+        (course) => course.course_courseId == courseId
+      )[0];
+      // add to semester
+      semester["courses"].push(course);
+      //remove from course
+      this.setState({
+        courses: courses.filter((course) => course.course_courseId != courseId),
+      });
+    } else if (destColumn.match(/semester6/)) {
+      // dragged to semester column
+      let semester = semesters.filter(
+        (semester) => semester.id == destColumn
+      )[0];
+      let course = courses.filter(
+        (course) => course.course_courseId == courseId
+      )[0];
+      // add to semester
+      semester["courses"].push(course);
+      //remove from course
+      this.setState({
+        courses: courses.filter((course) => course.course_courseId != courseId),
+      });
+    } else if (destColumn.match(/semester7/)) {
+      // dragged to semester column
+      let semester = semesters.filter(
+        (semester) => semester.id == destColumn
+      )[0];
+      let course = courses.filter(
+        (course) => course.course_courseId == courseId
+      )[0];
+      // add to semester
+      semester["courses"].push(course);
+      //remove from course
+      this.setState({
+        courses: courses.filter((course) => course.course_courseId != courseId),
+      });
+    } else if (destColumn.match(/semester8/)) {
       // dragged to semester column
       let semester = semesters.filter(
         (semester) => semester.id == destColumn
