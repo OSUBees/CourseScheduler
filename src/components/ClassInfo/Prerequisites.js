@@ -22,7 +22,7 @@ class Prerequisites extends Component {
                 <h3 className="text-black">Prerequisites Met</h3>
                 <div
                   style={{ height: "700px", overflow: "auto" }}
-                  className="shadow-sm d-flex justify-content-between flex-column"
+                  className=" d-flex justify-content-between flex-column"
                 >
                   {courses.map((course, index) => {
                     return (
