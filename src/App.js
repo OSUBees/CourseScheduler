@@ -129,10 +129,21 @@ class App extends Component {
       // add to semester
       semester["courses"].push(course);
       //remove from course
-      let tmpCourses = [...courses].filter(
+      let removeCourse = [...courses].filter(
         (course) => course.course_courseId != courseId
       );
-      this.setState((courses = tmpCourses));
+
+      // let remove = this.state.fruits.indexOf(e.target.value);
+      this.setState(
+        {
+          courses: courses.filter(
+            (course) => course.course_courseId != courseId
+          ),
+        },
+        () => {
+          console.log("course", courses);
+        }
+      );
     }
   }
 
