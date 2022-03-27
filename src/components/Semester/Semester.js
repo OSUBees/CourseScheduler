@@ -26,7 +26,7 @@ class Semester extends Component {
               <div className="text-center mx-5 fw-bold fs-3 ">Semester X</div>
 
                 
-                <div className="text-center mx-5 fw-bold fs-3 mt-5">Total Credit: 
+                <div className="text-center mx-5 fw-bold fs-3 mt-5">Total Credit:{semester.totalCredit} 
                 </div>
               <div className="d-flex flex-column mx-auto w-80 mt-5 p-2">
                 {semester.courses != null
