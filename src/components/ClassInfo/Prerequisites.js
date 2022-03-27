@@ -20,12 +20,16 @@ class Prerequisites extends Component {
             >
               <div className="shadow my-2 bg-dark rounded-3 p-2">
                 <h3 className="text-white">Prerequisites Met</h3>
-                <div style={{height: "700px", overflow: "auto"}}className="shadow-sm d-flex justify-content-between flex-column">
+                <div
+                  style={{ height: "700px", overflow: "auto" }}
+                  className="shadow-sm d-flex justify-content-between flex-column"
+                >
                   {courses.map((course, index) => {
                     return (
                       <CourseItem
                         className="overflow-scroll px-3  shadow-sm "
                         key={course.course_courseId}
+                        courses={courses}
                         course={course}
                         index={index}
                       />

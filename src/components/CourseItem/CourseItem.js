@@ -6,9 +6,12 @@ import CommentBoxOverlay from "../commentboxoverlay";
 class CourseItem extends Component {
   state = {};
 
-  render() {
-    const { course, index } = this.props;
+  returnOverlay(course) {
+    return <CommentBoxOverlay key={course.course_id} course={course} />;
+  }
 
+  render() {
+    const { courses, course, index } = this.props;
     return (
       <Draggable
         key={course.course_courseId}
@@ -25,6 +28,7 @@ class CourseItem extends Component {
                 className="rounded-3 mx-auto my-2 w-20 p-auto d-block flex-column bg-primary text-white"
               >
                 <CommentBoxOverlay course={course} />
+
                 <a
                   class="btn btn-primary"
                   data-bs-toggle="modal"
