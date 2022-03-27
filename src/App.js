@@ -12,8 +12,8 @@ class App extends Component {
     courses: [],
     semesters: [
       {
-        id: "semester 1",
-        name: "semester 1",
+        id: "semester1",
+        name: "Semester 1",
         courses: [
           {
             course_courseId: "150588",
@@ -98,7 +98,7 @@ class App extends Component {
     if (destColumn.match(/semester.*/)) {
       // dragged to semester column
       let semester = semesters.filter(
-        (semester) => semester.name == destColumn
+        (semester) => semester.id == destColumn
       )[0];
       let course = courses.filter(
         (course) => course.course_courseId == courseId
@@ -106,21 +106,26 @@ class App extends Component {
       // add to semester
       semester["courses"].push(course);
       //remove from course
-      let removeCourse = [...courses].filter(
-        (course) => course.course_courseId != courseId
+      this.setState({
+        courses: courses.filter((course) => course.course_courseId != courseId),
+      });
+    } else if (destColumn.match(/Prereq Column/)) {
+      let semester = semesters.filter(
+        (semester) => semester.id === sourceColumn
+      )[0];
+      let course = semester["courses"].filter(
+        (course) => course.course_courseId === courseId
+      )[0];
+      let leftOver = semester["courses"].filter(
+        (course) => course.course_courseId !== courseId
       );
-
-      // let remove = this.state.fruits.indexOf(e.target.value);
-      this.setState(
-        {
-          courses: courses.filter(
-            (course) => course.course_courseId != courseId
-          ),
-        },
-        () => {
-          console.log("course", courses);
-        }
-      );
+      semester["courses"] = leftOver;
+      // remove from semester
+      this.setState({
+        semesters: semesters,
+      });
+      //add back to course
+      courses.push(course);
     }
   }
 
@@ -128,6 +133,7 @@ class App extends Component {
     let { courses, semesters, prerequisite } = this.state;
 
     for (let i = 0; i < semesters.length; i++) {
+      console.log(semesters);
       let semesterCourses = semesters[i].courses;
       let totalCredit = 0;
       for (let j = 0; j < semesterCourses.length; j++) {
