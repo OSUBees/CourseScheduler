@@ -119,11 +119,11 @@ class App extends Component {
     return (
       <DragDropContext onDragEnd={(result) => this.onDragEnd(result)}>
         <div className="w-75 bg-dark m-auto p-5">
-          <div className="row">
-            <div className="col-8">
+          <div className="d-inline-flex bg-dark  mb-0 p-5">
+            <div className="d-inline-block overflow-scroll h-80 col-8">
               <SemesterList semesters={semesters} />
             </div>
-            <div className="col-4">
+            <div className="d-inline-block h-80 col-2">
               <Prerequisites prerequisite={prerequisite} courses={courses} />
             </div>
           </div>

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-import classes from "./CourseItem.module.css";
+import "./CourseItem.module.css";
 import { Draggable } from "react-beautiful-dnd";
+// import "./CourseItem.module.css";
 
 class CourseItem extends Component {
   state = {};
@@ -21,14 +22,11 @@ class CourseItem extends Component {
               ref={provided.innerRef}
               {...provided.draggableProps}
               {...provided.dragHandleProps}
-              className={
-                classes.card +
-                " rounded-3 m-2 w-auto px-5 py-3 d-flex flex-column bg-primary text-white  d-inline-flex"
-              }
+              className="rounded-3 mx-auto my-2 w-100 px-5 py-5 d-flex flex-column bg-primary text-white"
             >
-              <div className="classes.course">
-                <h3 className={classes.name}>{course.course_number}</h3>
-                <div className={classes.credit}>
+              <div className=".course">
+                <h3 className="text-center">{course.course_number}</h3>
+                <div className="text-center">
                   Credit: {course.course_credit_hours}
                 </div>
               </div>

@@ -1,7 +1,7 @@
 import CourseItem from "../CourseItem/CourseItem.js";
-import classes from "./Semester.module.css";
 import React, { Component } from "react";
 import { Droppable } from "react-beautiful-dnd";
+import "./Semester.module.css";
 
 class Semester extends Component {
   state = {};
@@ -15,10 +15,10 @@ class Semester extends Component {
             <div
               {...provided.droppableProps}
               ref={provided.innerRef}
-              className={classes.card + " w-25" + classes.block}
+              className="d-flex  flex-column flex-wrap mx-2 p-3  w-auto block bg-secondary rounded-3 text-white"
             >
-              <div>Semester X</div>
-              <div className={classes.courses + "w-auto"}>
+              <div className="mx-auto fw-bold fs-3 ">Semester X</div>
+              <div className="d-flex flex-wrap mx-auto w-80 mt-5 p-2">
                 {semester.courses.map((course, index) => {
                   return (
                     <CourseItem
@@ -29,7 +29,7 @@ class Semester extends Component {
                   );
                 })}
               </div>
-              <div>Total Credit:XX</div>
+              <div className="mx-auto fw-bold fs-3 mt-5">Total Credit:XX</div>
               {provided.placeholder}
             </div>
           );
@@ -40,41 +40,3 @@ class Semester extends Component {
 }
 
 export default Semester;
-
-// const DUMMY_COURSES = [
-//   {
-//     id: "c1",
-//     name: "CSE2221",
-//     description: "Software 1",
-//     credit: 4,
-//   },
-//   {
-//     id: "c2",
-//     name: "CSE2231",
-//     description: "Software 2",
-//     credit: 3,
-//   },
-//   {
-//     id: "c3",
-//     name: "CSE2321",
-//     description: "Foundation 1",
-//     credit: 3,
-//   },
-//   {
-//     id: "c4",
-//     name: "CSE2331",
-//     description: "Foundation 2",
-//     credit: 3,
-//   },
-// ];
-// const Semester = () => {
-//   const coursesList = DUMMY_COURSES.map((course) => (
-//     <CourseItem
-//       id={course.id}
-//       name={course.name}
-//       description={course.description}
-//       credit={course.credit}
-//     />
-//   ));
-
-// };

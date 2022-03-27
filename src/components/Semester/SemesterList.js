@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import Semester from "./Semester.js";
-import classes from "./SemesterList.module.css";
+import "./SemesterList.module.css";
 
 class SemesterList extends Component {
   state = {};
   render() {
     const { semesters } = this.props;
     return (
-      <div className={classes.list}>
+      <div className="w-55 overflow-scroll h-100 d-flex">
         {semesters.map((semester) => {
-          return <Semester key={semester.id} semester={semester} />;
+          return (
+            <Semester
+              className="mx-2 h-90 d-flex bg-secondary flex-wrap"
+              key={semester.id}
+              semester={semester}
+            />
+          );
         })}
       </div>
     );
