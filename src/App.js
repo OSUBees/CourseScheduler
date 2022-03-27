@@ -66,12 +66,13 @@ class App extends Component {
       name: "Prereq Column",
     },
   };
-  // getSemesters() {
-  //   const dbRef = ref(getDatabase(), "semesters");
-  //   onValue(dbRef, (snapshot) => {
-  //     this.setState({ semesters: snapshot.val() });
-  //   });
-  // }
+
+  getSemesters() {
+    const dbRef = ref(getDatabase(), "semesters");
+    onValue(dbRef, (snapshot) => {
+      this.setState({ semesters: snapshot.val() });
+    });
+  }
   getCourses() {
     const dbRef = ref(getDatabase(), "courses");
     onValue(dbRef, (snapshot) => {
@@ -83,7 +84,7 @@ class App extends Component {
   componentDidMount() {
     console.log("mounted");
     this.getCourses();
-    // this.getSemesters();
+    this.getSemesters();
   }
 
   onDragEnd(result) {
@@ -129,11 +130,16 @@ class App extends Component {
 
     for (let i = 0; i < semesters.length; i++) {
       let semesterCourses = semesters[i].courses;
-      let totalCredit = 0;
-      for (let j = 0; j < semesterCourses.length; j++) {
-        totalCredit =
-          totalCredit + parseInt(semesterCourses[j].course_credit_hours);
-      }
+      // let totalCredit = 0;
+      // for (let j = 0; j < semesterCourses.length; j++) {
+      //   totalCredit =
+      //     totalCredit + parseInt(semesterCourses[j].course_credit_hours);
+      // }
+      let totalCredit = semesterCourses.reduce(
+        (cur, semesterCourse) =>
+          cur + parseInt(semesterCourse.course_credit_hours),
+        0
+      );
       semesters[i]["totalCredit"] = totalCredit;
     }
 
@@ -141,7 +147,7 @@ class App extends Component {
       <DragDropContext onDragEnd={(result) => this.onDragEnd(result)}>
         <div
           style={{ height: "100%" }}
-          className="d-flex flex-column h-100 bg-dark mb-0 p-5"
+          className="d-flex flex-column h-100  mb-0 p-5"
         >
           <div className="d-flex">
             <div className="d-block w-40  overflow-scroll h-80 col-8">
