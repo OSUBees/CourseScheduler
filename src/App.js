@@ -1,7 +1,9 @@
 import "./App.css";
+import CommentBox from "./components/commentbox";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  return <div className="App">Hello</div>;
+  return <CommentBox />;
 }
 
 export default App;
