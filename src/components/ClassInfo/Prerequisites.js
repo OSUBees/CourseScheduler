@@ -111,17 +111,20 @@ function Prerequisites(prop) {
   ));
 
   return (
-    <div className=" d-block w-10 mx-auto p-3 text-center bg-secondary  h-80 shadow rounded-3 ">
+    <div className=" d-flex flex-column w-10 mx-auto p-3 text-center bg-secondary shadow rounded-3 ">
       <div className=" shadow my-2 bg-dark rounded-3 p-2">
         <h3 className="text-white">Prerequisites Met</h3>
-        <div className="overflow-scroll px-3  shadow-sm ">
+       
+          
+        <div style={{ height: "500px", overflow:"auto"}} className="d-block  p-3 ">
           
           {metList}
-        </div>
+          </div>
+
       </div>
       <div className=" shadow my-2 bg-dark rounded-3 p-2">
         <h3 className="text-white">Prerequisites Unmet</h3>
-        <div className="overflow-scroll  px-3  shadow-sm ">
+        <div style={{ height: "500px", overflow:"auto"}} className="px-3  shadow-sm ">
           {unMetList}
         </div>
       </div>
