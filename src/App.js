@@ -6,7 +6,6 @@ import "bootstrap/dist/js/bootstrap";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Prerequisites from "./components/ClassInfo/Prerequisites.js";
 import SemesterList from "./components/Semester/SemesterList.js";
-import Semester from "./components/Semester/Semester";
 
 class App extends Component {
   state = {
@@ -122,9 +121,7 @@ class App extends Component {
         <div className="w-75 bg-dark m-auto p-5">
           <div className="row">
             <div className="col-8">
-              {semesters.map((semester) => {
-                return <Semester key={semester.id} semester={semester} />;
-              })}
+              <SemesterList semesters={semesters} />
             </div>
             <div className="col-4">
               <Prerequisites prerequisite={prerequisite} courses={courses} />
