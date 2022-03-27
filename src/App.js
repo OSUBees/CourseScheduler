@@ -1,8 +1,9 @@
 import "./App.css";
 import React, { Component } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
-import Courses from "./components/courses";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap";
+import CommentBoxOverlay from "./components/commentboxoverlay";
 
 class App extends Component {
   state = {
@@ -43,7 +44,7 @@ class App extends Component {
     const { courses, professors, semesters } = this.state;
     return (
       <div>
-        <SomeComponent
+        <CommentBoxOverlay
           semesters={semesters}
           courses={courses}
           professors={professors}

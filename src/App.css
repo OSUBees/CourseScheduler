@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.comment-line-container {
+  max-height: 250px;
+  overflow-y: scroll;
+}
+
+.comment-box-overlay-container {
+  /* max-height: 250px; */
+  /* overflow-y: scroll; */
+}
