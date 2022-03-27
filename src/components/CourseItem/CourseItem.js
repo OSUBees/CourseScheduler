@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import "./CourseItem.module.css";
 import { Draggable } from "react-beautiful-dnd";
 // import "./CourseItem.module.css";
