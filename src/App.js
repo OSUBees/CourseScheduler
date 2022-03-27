@@ -22,7 +22,7 @@ class App extends Component {
             course_short_description: "HonUG Research CSE",
             course_description:
               "Opportunity for undergraduate student to conduct research in Computer Science and Engineering.\r\nPrereq: Honors standing, and permission of instructor. Repeatable to a maximum of 10 cr hrs or 10 completions. This course is graded S/U.",
-            course_credit_hours: "10 - 10",
+            course_credit_hours: "10",
             course_number: "CSE 4998H",
             course_campus: "Columbus",
             course_catalogLevel: "4xxx",
@@ -66,7 +66,6 @@ class App extends Component {
       name: "Prereq Column",
     },
   };
-
   // getSemesters() {
   //   const dbRef = ref(getDatabase(), "semesters");
   //   onValue(dbRef, (snapshot) => {
@@ -127,18 +126,32 @@ class App extends Component {
 
   render() {
     let { courses, semesters, prerequisite } = this.state;
+
+    for (let i = 0; i < semesters.length; i++) {
+      let semesterCourses = semesters[i].courses;
+      let totalCredit = 0;
+      for (let j = 0; j < semesterCourses.length; j++) {
+        totalCredit =
+          totalCredit + parseInt(semesterCourses[j].course_credit_hours);
+      }
+      semesters[i]["totalCredit"] = totalCredit;
+    }
+
     return (
       <DragDropContext onDragEnd={(result) => this.onDragEnd(result)}>
-        <div style={{ height: "100%" }} className="d-flex flex-column h-100 bg-dark mb-0 p-5">
-            <div className="d-flex">
+        <div
+          style={{ height: "100%" }}
+          className="d-flex flex-column h-100 bg-dark mb-0 p-5"
+        >
+          <div className="d-flex">
             <div className="d-block w-40  overflow-scroll h-80 col-8">
               <SemesterList semesters={semesters} />
             </div>
             <div className="d-flex flex-column  mx-5 h-80 col-3">
               <Prerequisites prerequisite={prerequisite} courses={courses} />
             </div>
-            </div>
           </div>
+        </div>
       </DragDropContext>
     );
   }
