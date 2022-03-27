@@ -236,7 +236,7 @@ class App extends Component {
       <DragDropContext onDragEnd={(result) => this.onDragEnd(result)}>
         <div
           style={{ height: "100%" }}
-          className="d-flex flex-column h-100 bg-dark mb-0 p-5"
+          className="d-flex flex-column h-100  mb-0 p-5"
         >
           <div className="d-flex">
             <div className="d-block w-40  overflow-scroll h-80 col-8">
