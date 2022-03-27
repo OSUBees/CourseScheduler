@@ -1,9 +1,10 @@
 import "./App.css";
-import CommentBox from "./components/commentbox";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap";
+import CommentBoxOverlay from "./components/commentboxoverlay";
 
 function App() {
-  return <CommentBox />;
+  return <CommentBoxOverlay />;
 }
 
 export default App;

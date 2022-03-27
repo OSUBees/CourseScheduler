@@ -13,13 +13,30 @@ class CommentBox extends Component {
   render() {
     return (
       <div
-        className="row w-50 m-auto my-5 rounded-top pt-3"
+        className="row w-75 m-auto my-5 rounded-top pt-3"
         style={this.styles}
       >
         <h2 className="text-lg">Professor Name</h2>
-        <CommentLine />
-        <CommentLine />
-        <CommentLine />
+        <div className="comment-line-container">
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+          <CommentLine />
+        </div>
+
         <EnterComment />
       </div>
     );

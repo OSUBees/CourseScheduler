@@ -10,7 +10,7 @@ class EnterComment extends Component {
   render() {
     const { starClicked } = this.state;
     return (
-      <div className="row m-0 p-0">
+      <div className="row m-0 p-0 mt-1">
         <div class="input-group p-0">
           <div class="input-group-prepend">
             <span class="input-group-text">
@@ -22,7 +22,7 @@ class EnterComment extends Component {
               {starClicked.map((clicked, index) => (
                 <StarIcon
                   key={index}
-                  className={clicked ? "text-primary" : "text-light"}
+                  className={clicked ? "text-primary" : "text-secondary"}
                   onClick={() => this.setClicked(index)}
                 />
               ))}
@@ -31,6 +31,7 @@ class EnterComment extends Component {
           <input
             type="text"
             class="form-control"
+            placeholder="Enter Comments"
             aria-label="Enter Comments"
           ></input>
           <div class="input-group-append">

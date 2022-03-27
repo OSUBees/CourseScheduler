@@ -9,7 +9,7 @@ class CommentLine extends Component {
       <div className="row m-0 p-0">
         <div className="col-5">
           <StarIcon className="text-primary border-primary" />
-          <StarIcon className="text-light border-primary" />
+          <StarIcon className="text-secondary border-primary starStyle" />
         </div>
         <div className="col-7">comments</div>
       </div>
