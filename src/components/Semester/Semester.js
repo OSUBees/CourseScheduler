@@ -1,16 +1,40 @@
 import CourseItem from "../CourseItem/CourseItem.js";
 import classes from "./Semester.module.css";
 import React, { Component } from "react";
+import { Droppable } from "react-beautiful-dnd";
 
 class Semester extends Component {
   state = {};
+
   render() {
+    const { semester } = this.props;
     return (
-      <div className={classes.card + " w-25" + classes.block}>
-        <div>Semester X</div>
-        <div className={classes.courses + "w-auto"}></div>
-        <div>Total Credit:XX</div>
-      </div>
+      <Droppable droppableId={semester.id} key={semester.id}>
+        {(provided, snapshot) => {
+          return (
+            <div
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+              className={classes.card + " w-25" + classes.block}
+            >
+              <div>Semester X</div>
+              <div className={classes.courses + "w-auto"}>
+                {semester.courses.map((course, index) => {
+                  return (
+                    <CourseItem
+                      key={course.course_courseId}
+                      course={course}
+                      index={index}
+                    />
+                  );
+                })}
+              </div>
+              <div>Total Credit:XX</div>
+              {provided.placeholder}
+            </div>
+          );
+        }}
+      </Droppable>
     );
   }
 }
