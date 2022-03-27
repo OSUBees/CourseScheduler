@@ -6,16 +6,13 @@ const SemesterList = () => {
     <div>
       <ul className={classes.list}>
         <li>
-          <Semester />;
+          <Semester />
         </li>
         <li>
-          <Semester />;
+          <Semester />
         </li>
         <li>
-          <Semester />;
-        </li>
-        <li>
-          <Semester />;
+          <Semester />
         </li>
       </ul>
     </div>
