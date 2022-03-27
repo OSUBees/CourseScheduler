@@ -15,10 +15,13 @@ class Semester extends Component {
             <div
               {...provided.droppableProps}
               ref={provided.innerRef}
-              className="d-inline-flex  flex-column  mx-2 p-1  w-40 block bg-secondary rounded-3 text-white"
+              className="d-inline-flex  flex-column  mx-2 p-1 bg-light w-40 block shadow  rounded-3 text-black  "
             >
-              <div className="mx-5 fw-bold fs-3 ">Semester X</div>
-              <div className="mx-5 fw-bold fs-3 mt-5">Total Credit:XX</div>
+              <div className="text-center mx-5 fw-bold fs-3 ">Semester X</div>
+
+                
+                <div className="text-center mx-5 fw-bold fs-3 mt-5">Total Credit: 
+                </div>
               <div className="d-flex flex-column mx-auto w-80 mt-5 p-2">
                 {semester.courses.map((course, index) => {
                   return (
