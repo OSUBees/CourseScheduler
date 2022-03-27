@@ -1,56 +1,43 @@
 import CourseItem from "../CourseItem/CourseItem.js";
-import  "./Semester.module.css";
+import React, { Component } from "react";
+import { Droppable } from "react-beautiful-dnd";
+import "./Semester.module.css";
 
-const DUMMY_COURSES = [
-  {
-    id: "c1",
-    name: "CSE2221",
-    description: "Software 1",
-    credit: 4,
-  },
-  {
-    id: "c2",
-    name: "CSE2231",
-    description: "Software 2",
-    credit: 3,
-  },
-  {
-    id: "c3",
-    name: "CSE2321",
-    description: "Foundation 1",
-    credit: 3,
-  },
-  {
-    id: "c4",
-    name: "CSE2331",
-    description: "Foundation 2",
-    credit: 3,
-  },
-];
+class Semester extends Component {
+  state = {};
 
-const Semester = () => {
-  const coursesList = DUMMY_COURSES.map((course) => (
-    <CourseItem
-      id={course.id}
-      name={course.name}
-      description={course.description}
-      credit={course.credit}
-    />
-  ));
-
-  return (
-    <div className="d-flex  flex-column flex-wrap mx-2 p-3  w-auto block bg-secondary rounded-3 text-white">
-      
-      <p className="mx-auto fw-bold fs-3 ">Semester X</p>
-      <p className="mx-auto fw-bold fs-3 mt-5">Total Credit:XX</p>
-      <div className="d-flex flex-wrap mx-auto w-80 mt-5 p-2">{coursesList}</div>
-      <div className="mx-auto">
-        
-      
-      </div>
-      
-    </div>
-  );
-};
+  render() {
+    const { semester } = this.props;
+    return (
+      <Droppable droppableId={semester.id} key={semester.id}>
+        {(provided, snapshot) => {
+          return (
+            <div
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+              className="d-inline-flex  flex-column  mx-2 p-1  w-40 block bg-secondary rounded-3 text-white"
+            >
+              <div className="mx-5 fw-bold fs-3 ">Semester X</div>
+              <div className="mx-5 fw-bold fs-3 mt-5">Total Credit:XX</div>
+              <div className="d-flex flex-column mx-auto w-80 mt-5 p-2">
+                {semester.courses.map((course, index) => {
+                  return (
+                    <CourseItem
+                      key={course.course_courseId}
+                      course={course}
+                      index={index}
+                    />
+                  );
+                })}
+              </div>
+              
+              {provided.placeholder}
+            </div>
+          );
+        }}
+      </Droppable>
+    );
+  }
+}
 
 export default Semester;

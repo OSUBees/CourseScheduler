@@ -26,7 +26,7 @@ const database = getDatabase(app);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App database={database} />
   </React.StrictMode>,
   document.getElementById("root")
 );

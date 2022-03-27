@@ -1,0 +1,31 @@
+{
+  "course_name": {
+    "term": "Spring 2022",
+    "effectiveDate": "2013-08-20",
+    "effectiveStatus": "A",
+    "title": "Survey of Artificial Intelligence for Non-Majors",
+    "shortDescription": "AI for Non Majrs",
+    "description": "Survey of the basic concepts and techniques in artificial intelligence, including problem solving, knowledge representation, and machine learning.\r\nPrereq: 1211, 1221, 1222, 1223, or 2221, or Grad standing. Not open to students with credit for 3521 (630), 4521, or 5521, or students enrolled in a CSE or CIS major.",
+    "equivalentId": "",
+    "allowMultiEnroll": "N",
+    "maxUnits": 3,
+    "minUnits": 3,
+    "repeatUnitsLimit": 3,
+    "grading": "Graded",
+    "component": "Lecture",
+    "primaryComponent": "LEC",
+    "offeringNumber": "1",
+    "academicGroup": "Engineering",
+    "subject": "CSE",
+    "catalogNumber": "5052",
+    "campus": "Columbus",
+    "academicOrg": "D1435",
+    "academicCareer": "Undergraduate",
+    "cipCode": "14.0901",
+    "courseAttributes": [{ "name": "", "value": "", "description": "" }],
+    "campusCode": "COL",
+    "catalogLevel": "5xxx",
+    "subjectDesc": "Computer Science & Engineering",
+    "courseId": "148796"
+  }
+}

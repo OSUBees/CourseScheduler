@@ -1,135 +1,45 @@
-import React from "react";
+import React, { Component } from "react";
 import CourseItem from "../CourseItem/CourseItem.js";
-import "./Prerequisites.module.css"
-const DUMMY_MET = [
-  {
-    id: "c1",
-    name: "CSE2221",
-    description: "Software 1",
-    credit: 4,
-  },
-  {
-    id: "c2",
-    name: "CSE2231",
-    description: "Software 2",
-    credit: 3,
-  },
-  {
-    id: "c3",
-    name: "CSE2321",
-    description: "Foundation 1",
-    credit: 3,
-  },
-  {
-    id: "c4",
-    name: "CSE2331",
-    description: "Foundation 2",
-    credit: 3,
-  },
-  {
-    id: "c2",
-    name: "CSE2231",
-    description: "Software 2",
-    credit: 3,
-  },
-  {
-    id: "c3",
-    name: "CSE2321",
-    description: "Foundation 1",
-    credit: 3,
-  },
-  {
-    id: "c4",
-    name: "CSE2331",
-    description: "Foundation 2",
-    credit: 3,
-  },
-];
+import { Droppable } from "react-beautiful-dnd";
+import "./Prerequisites.module.css";
 
-const DUMMY_UNMET = [
-  {
-    id: "c1",
-    name: "CSE2221",
-    description: "Software 1",
-    credit: 4,
-  },
-  {
-    id: "c2",
-    name: "CSE2231",
-    description: "Software 2",
-    credit: 3,
-  },
-  {
-    id: "c3",
-    name: "CSE2321",
-    description: "Foundation 1",
-    credit: 3,
-  },
-  {
-    id: "c4",
-    name: "CSE2331",
-    description: "Foundation 2",
-    credit: 3,
-  },
-  {
-    id: "c2",
-    name: "CSE2231",
-    description: "Software 2",
-    credit: 3,
-  },
-  {
-    id: "c3",
-    name: "CSE2321",
-    description: "Foundation 1",
-    credit: 3,
-  },
-  {
-    id: "c4",
-    name: "CSE2331",
-    description: "Foundation 2",
-    credit: 3,
-  },
-];
+class Prerequisites extends Component {
+  state = {};
 
-function Prerequisites(prop) {
-  const metList = DUMMY_MET.map((course) => (
-    <CourseItem
-      id={course.id}
-      name={course.name}
-      description={course.description}
-      credit={course.credit}
-    />
-  ));
+  render() {
+    const { courses, prerequisite } = this.props;
 
-  const unMetList = DUMMY_UNMET.map((course) => (
-    <CourseItem
-      id={course.id}
-      name={course.name}
-      description={course.description}
-      credit={course.credit}
-    />
-  ));
-
-  return (
-    <div className=" d-flex flex-column w-10 mx-auto p-3 text-center bg-secondary shadow rounded-3 ">
-      <div className=" shadow my-2 bg-dark rounded-3 p-2">
-        <h3 className="text-white">Prerequisites Met</h3>
-       
-          
-        <div style={{ height: "500px", overflow:"auto"}} className="d-block  p-3 ">
-          
-          {metList}
-          </div>
-
-      </div>
-      <div className=" shadow my-2 bg-dark rounded-3 p-2">
-        <h3 className="text-white">Prerequisites Unmet</h3>
-        <div style={{ height: "500px", overflow:"auto"}} className="px-3  shadow-sm ">
-          {unMetList}
-        </div>
-      </div>
-    </div>
-  );
+    return (
+      <Droppable droppableId={prerequisite.name} key={prerequisite.id}>
+        {(provided, snapshot) => {
+          return (
+            <div
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+              className="d-flex flex-column w-10 mx-auto p-3 text-center bg-secondary  h-80 shadow rounded-3"
+            >
+              <div className="shadow my-2 bg-dark rounded-3 p-2">
+                <h3 className="text-white">Prerequisites Met</h3>
+                <div style={{height: "700px", overflow: "auto"}}className="shadow-sm d-flex justify-content-between flex-column">
+                  {courses.map((course, index) => {
+                    return (
+                      <CourseItem
+                        className="overflow-scroll px-3  shadow-sm "
+                        key={course.course_courseId}
+                        course={course}
+                        index={index}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+              {provided.placeholder}
+            </div>
+          );
+        }}
+      </Droppable>
+    );
+  }
 }
 
 export default Prerequisites;
